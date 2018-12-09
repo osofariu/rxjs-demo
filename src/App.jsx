@@ -12,16 +12,16 @@ import { Crazy } from './Crazy';
 export const App = () => (
   <div style={{ display: 'grid' }}>
     <Coordinates />
-    <CoordinatesWithSockets />
+    {/* <CoordinatesWithSockets /> */}
 
-    <Sockets />
-    <SocketsWithCoordinates />
+    {/* <Sockets /> */}
+    {/* <SocketsWithCoordinates /> */}
 
-    <Keys />
-    <Quadrant />
+    {/* <Keys /> */}
+    {/* <Quadrant /> */}
 
-    <Actions />
+    {/* <Actions /> */}
 
-    <Crazy />
+    {/* <Crazy /> */}
   </div>
 );
