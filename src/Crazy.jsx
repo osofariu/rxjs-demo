@@ -35,8 +35,6 @@ export class Crazy extends Component {
 
   render() {
     const { height, width, key, id } = this.state;
-    console.log(`KEY: ${key}`);
-    console.log(`COLOR: ${COLORS[key]}`);
     return (
       <div style={{ height, width, backgroundColor: COLORS[key] }}>
         <span>{id}</span>
