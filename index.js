@@ -5,6 +5,7 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const socketIO = require('socket.io');
 const { Server } = require('http');
+const { listenForChanges, addDocument } = require('./database');
 
 const webpackConfig = require('./webpack.config');
 const compiler = webpack(webpackConfig);
@@ -37,9 +38,11 @@ io.on('connection', socket => {
   });
 });
 
-let nextId = 0;
-setInterval(() => sockets.forEach(s => s.emit('data', { id: nextId++ })), 100);
+let count = 0;
+setInterval(() => sockets.forEach(s => s.emit('data', { id: count++ })), 100);
+setInterval(async () => await addDocument(count), 500);
 
+listenForChanges(io);
 server.listen(PORT, () =>
   console.log(`Now listening at http://localhost:${PORT}`)
 );

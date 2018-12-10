@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { dataService } from './data-service';
 
 export class Keys extends Component {
-  state = {};
+  state = { key: '' };
 
   componentDidMount() {
     dataService.keys$.subscribe(this._onKey);
@@ -18,6 +18,6 @@ export class Keys extends Component {
     );
   }
   _onKey = key => {
-    this.setState({ key });
+    this.setState({ key: this.state.key + key });
   };
 }

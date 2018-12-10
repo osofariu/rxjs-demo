@@ -7,11 +7,14 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "node ./index.js"
+    "start": "node ./index.js",
+    "start:raven": "docker run -d -e RAVEN_ARGS='--Setup.Mode=None' -p 8080:8080 -p 38888:38888 ravendb/ravendb",
+    "stop:raven": "docker kill $(docker ps -q)"
   },
   "dependencies": {
     "body-parser": "1.18.3",
     "express": "4.16.4",
+    "ravendb": "4.1.0",
     "react": "16.6.3",
     "react-dom": "16.6.3",
     "rxjs": "6.3.3",

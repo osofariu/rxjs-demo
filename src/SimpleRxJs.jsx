@@ -2,25 +2,22 @@ import React, { Component } from 'react';
 
 import { dataService } from './data-service';
 
-export class Coordinates extends Component {
+export class SimpleRxJs extends Component {
   state = {};
 
   componentDidMount() {
-    dataService.coordinates$.subscribe(this._onCoordinates);
+    dataService.simple$.subscribe(this._onSimple);
   }
 
   render() {
-    const { x, y } = this.state;
     return (
       <div>
-        <span>
-          RxJS: ({x}, {y})
-        </span>
+        <span>Simple RxJS: {JSON.stringify(this.state)}</span>
       </div>
     );
   }
 
-  _onCoordinates = ({ x, y }) => {
+  _onSimple = ({ x, y }) => {
     this.setState({ x, y });
   };
 }
