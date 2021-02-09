@@ -10,11 +10,11 @@ describe('Switch Map Operator', () => {
   });
 
   it('should switch from the original stream to the output of the second stream', done => {
-    setupAjaxResult(of({ writtenNumber: "fourty-five" }));
+    setupAjaxResult(of({ writtenNumber: "forty-five" }));
 
     ajaxSwitchMap(originalSource.asObservable()).subscribe(result => {
       expect(ajax.getJSON).toHaveBeenCalledWith('https://fake-numberizer.io/45');
-      expect(result).toEqual({ writtenNumber: "fourty-five" });
+      expect(result).toEqual({ writtenNumber: "forty-five" });
       done();
     });
 
