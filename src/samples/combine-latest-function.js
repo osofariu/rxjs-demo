@@ -1,3 +1,6 @@
+import {combineLatest, of} from "rxjs";
+import {map} from "rxjs/operators";
+
 export function selectedEntity(selectedId$, entities$) {
-  return selectedId$.pipe();
+    combineLatest(selectedId$, entities$).subscribe((id => {console.log(id)}))
 }

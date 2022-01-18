@@ -9,11 +9,11 @@ describe('Tap Operator', () => {
   });
 
   it('should perform side effect without effecting stream', done => {
-    spyOn(console, 'log');
-
+    let spy = spyOn(console, 'log');
+    console.log('******** hi')
     logElements(source.asObservable()).subscribe(result => {
       expect(result).toEqual({ id: 54 });
-      expect(console.log).toHaveBeenCalledWith(`Element: ${JSON.stringify({id: 54})}`);
+      expect(spy).toHaveBeenCalledWith(`Element: ${JSON.stringify({id: 54})}`);
       done();
     });
 

@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { complexMap, mapOperator } from './map-operator';
+import { multipleMaps, mapOperator } from './map-operator';
 
 describe('Map Operator', () => {
   let subject;
@@ -18,8 +18,8 @@ describe('Map Operator', () => {
   });
 
   it('should get names of each farm', done => {
-    complexMap(subject.asObservable()).subscribe(result => {
-      expect(result).toEqual(['Bob', 'Bob', 'Bob', 'Bob', 'Bob']);
+    multipleMaps(subject.asObservable()).subscribe(result => {
+      expect(result).toEqual(['Bob', 'Bill', 'Bryson']);
       done();
     });
 
@@ -28,10 +28,8 @@ describe('Map Operator', () => {
       pageSize: 5,
       items: [
         {name: 'Bob'},
-        {name: 'Bob'},
-        {name: 'Bob'},
-        {name: 'Bob'},
-        {name: 'Bob'},
+        {name: 'Bill'},
+        {name: 'Bryson'},
       ]
     };
     subject.next(pagedFarms);
