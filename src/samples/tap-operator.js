@@ -1,6 +1,7 @@
-import {tap} from "rxjs";
+import {tap} from "rxjs/operators";
 
 export function logElements(source$) {
-  console.log("************************************ foo")
-  return source$.pipe(tap((o) => console.log(o)));
+  return source$.pipe(
+      tap(o => console.log('Element: ' + JSON.stringify(o)))
+  );
 }
