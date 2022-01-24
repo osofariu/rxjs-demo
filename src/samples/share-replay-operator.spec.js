@@ -7,7 +7,7 @@ describe('shareReplay operator', function () {
     it('publishes last url to late subscriber', done => {
         const routeEnd = new Subject();
 
-        const lastUrl = publishLastUrl(routeEnd.asObservable())
+        const lastUrl = publishLastUrl(routeEnd)
 
         lastUrl.subscribe(url => { });
 
